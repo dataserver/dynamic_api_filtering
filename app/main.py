@@ -101,7 +101,6 @@ class DynamicFilteringBase:
                         self._stmt = self._stmt.where(column(c_name) <= value)
 
                     elif operator == "in":
-                        # c_type = self.columns_types[c_name]
                         items = value if value != "" else None
                         if items is not None:
                             if isinstance(items, str):
@@ -113,14 +112,12 @@ class DynamicFilteringBase:
                             self._stmt = self._stmt.where(column(c_name).in_(items))
 
                     elif operator == "notin":
-                        # logger.debug("self.columns_types[c_name]", self.columns_types[c_name])
                         items = value if value != "" else None
                         if items is not None:
                             if isinstance(items, str):
                                 items = items.split(",")
                                 if self.columns_types[c_name] == "INTEGER":
                                     items = [int(i) for i in items]
-                                #     logger.debug("items", items)
                             elif isinstance(items, list):
                                 items = items
                             self._stmt = self._stmt.where(column(c_name).not_in(items))
@@ -165,7 +162,6 @@ class DynamicFilteringBase:
                         self._stmt = self._stmt.where(column(c_name).ilike(search))
 
                     elif operator == "isnull":
-                        print("operator==isnull")
                         self._stmt = self._stmt.where(column(c_name).is_(None))
                     elif operator == "isnotnull":
                         self._stmt = self._stmt.where(column(c_name).is_not(None))
