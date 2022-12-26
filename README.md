@@ -1,4 +1,7 @@
 
+# Dynamic create a SQLAlchemy Statement from query string
+
+
 ## Query string
 
     api.example.com/coollection/?id[between]=1:100&created_at[startswith]=2001&name[ilike]=john
@@ -8,6 +11,9 @@
                   AND created_at LIKE '2001%'
                   AND lower(name) LIKE lower('john')
 
+## Example
+
+Check in the main.py for an example of output.
 
 ## Query String Parameters
 
