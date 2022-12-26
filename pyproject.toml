@@ -2,11 +2,18 @@
 name = "dynamic_api_filtering"
 version = "0.1.0"
 description = "Demo dynamic API filtering"
+authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
+python = "<3.12,>=3.10"
+sqlalchemy = "^1.4.45"
+pytz = "^2022.7"
 
 [tool.poetry.dev-dependencies]
 
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
