@@ -4,6 +4,7 @@
 Inspired by the text :
 
 How to implement dynamic API filtering using query parameters with Flask-SQLAlchemy
+
 from https://mindee.com/blog/flask-sqlalchemy/
 
 This is my implementation for a personal project without any security concerns. 
@@ -21,11 +22,11 @@ the public.
 
 ## Example
 
-Check in the main.py for an example of output.
+Check in the main.py for an example
 
 ## Query String Parameters
 
-Only the must used operation has being included.
+Only the most commonly used operations have been included.
 
 
     EQ (equal / default):
