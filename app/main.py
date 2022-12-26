@@ -205,7 +205,7 @@ class UserQueryBuilder(DynamicFilteringBase):
 
     def query(self) -> None:
         # Add some custom query parameters NOT in the table column
-        # This is the same param[notin] but it's here as example
+        # This is the same as param[notin] but it's here as an example
         exclude = self._args["exclude"] if "exclude" in self._args else ""
         exclude = exclude if exclude != "" else None
         if exclude is not None:
@@ -217,7 +217,7 @@ class UserQueryBuilder(DynamicFilteringBase):
 
 def main():
     """
-    note query string parameters have values as string.
+    note query string parameters values are strings.
     """
     args = {
         "name[ilike]": "john",
@@ -226,7 +226,7 @@ def main():
     query = UserQueryBuilder(args)
     print(literalquery(query.stmt()))
     # output:
-    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.created_at, users.updated_at
+    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.timestamp, users.created_at, users.updated_at
     # FROM users
     # WHERE lower(name) LIKE lower('john') AND phone = '123456'
 
@@ -237,7 +237,7 @@ def main():
     query = UserQueryBuilder(args, ignore_empty=True)
     print(literalquery(query.stmt()))
     # output:
-    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.created_at, users.updated_at
+    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.timestamp, users.created_at, users.updated_at
     # FROM users
     # WHERE lower(city) LIKE lower('New York')
 
@@ -247,7 +247,7 @@ def main():
     query = UserQueryBuilder(args)
     print(literalquery(query.stmt()))
     # output:
-    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.created_at, users.updated_at
+    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.timestamp, users.created_at, users.updated_at
     # FROM users
     # WHERE day_of_birth LIKE '2001%'
 
@@ -256,7 +256,7 @@ def main():
     }
     query = UserQueryBuilder(args)
     print(literalquery(query.stmt()))
-    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.created_at, users.updated_at
+    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.timestamp, users.created_at, users.updated_at
     # FROM users
     # WHERE (id NOT IN (1, 2, 3))
 
@@ -266,7 +266,7 @@ def main():
     query = UserQueryBuilder(args)
     print(literalquery(query.stmt()))
     # output:
-    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.created_at, users.updated_at
+    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.timestamp, users.created_at, users.updated_at
     # FROM users
     # WHERE timestamp BETWEEN 1640525719 AND 1672061719
 
@@ -276,7 +276,7 @@ def main():
     query = UserQueryBuilder(args)
     print(literalquery(query.stmt()))
     # output:
-    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.created_at, users.updated_at
+    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.timestamp, users.created_at, users.updated_at
     # FROM users
     # WHERE city IS NULL
 
@@ -286,7 +286,7 @@ def main():
     query = UserQueryBuilder(args)
     print(literalquery(query.stmt()))
     # output:
-    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.created_at, users.updated_at
+    # SELECT users.id, users.name, users.fullname, users.nickname, users.day_of_birth, users.city, users.phone, users.timestamp, users.created_at, users.updated_at
     # FROM users
 
 
