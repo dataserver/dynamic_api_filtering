@@ -34,7 +34,7 @@ Only the most commonly used operations have been included.
         sql   : column = 456
 
     NE (not equal):
-        string: variable[ne] = 456
+        string: column[ne] = 456
         sql   : column != 456
 
     GT (greater than)
