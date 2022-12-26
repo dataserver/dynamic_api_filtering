@@ -3,13 +3,14 @@
 
 Inspired by the text :
 
-How to implement dynamic API filtering using query parameters with Flask-SQLAlchemy
+"How to implement dynamic API filtering using query parameters with Flask-SQLAlchemy"
 
-from https://mindee.com/blog/flask-sqlalchemy/
+https://mindee.com/blog/flask-sqlalchemy/
+
 
 This is my implementation for a personal project without any security concerns. 
 All the columns in the table are searchable which is **BAD IDEA** if it is open to 
-the public.
+the public!
 
 ## Query string
 
